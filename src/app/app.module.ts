@@ -1,3 +1,5 @@
+import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { MapService } from './../pages/home/service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -6,6 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { HttpClientModule } from '@angular/common/http';
+import {GoogleMaps} from '@ionic-native/google-maps'
+import { Geolocation } from '@ionic-native/geolocation';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +20,8 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -22,8 +30,12 @@ import { HomePage } from '../pages/home/home';
     HomePage
   ],
   providers: [
+    GoogleMaps,
     StatusBar,
     SplashScreen,
+    Geolocation,
+    CookieService,
+    MapService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
