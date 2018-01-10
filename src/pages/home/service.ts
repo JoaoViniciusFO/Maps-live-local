@@ -13,18 +13,18 @@ export class MapService {
         let headers = new Headers({ 'Authorization': "Bearer " + token });
 
         let options = new RequestOptions({ headers: headers });
-        return this.http.post("http://192.168.1.241:8080/mais-vida/set-location", data, options)
+        return this.http.post("ENDPOINT_TO_POST", data, options)
     }
 
     public setLogged(): Observable<any> {
 
         let headers = new Headers({
-            "Authorization": "Basic " + btoa("tablet" + ':' + "123")
+            "Authorization": "Basic " + btoa("HEADER_INFO CONNECT")
         });
 
         let options = new RequestOptions({ headers: headers })
 
-        return this.http.post("http://192.168.1.241:8080/mais-vida/oauth/token?grant_type=password&username=medico&password=123", {}, options)
+        return this.http.post("URL_CONNECT_OAUTH", {}, options)
            
     }
 }
